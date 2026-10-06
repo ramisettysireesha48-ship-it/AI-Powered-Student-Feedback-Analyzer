@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI-Powered Student Feedback Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span>AI</span> Feedback Analyzer
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="tag">ARTIFICIAL INTELLIGENCE • STUDENT INSIGHTS</p>
+
+                <h1>
+                    AI-Powered
+                    <span>Student Feedback</span>
+                    Analyzer
+                </h1>
+
+                <p>
+                    Analyze student feedback using intelligent sentiment,
+                    keyword, and emotion analysis to understand student
+                    opinions and improve academic experiences.
+                </p>
+
+                <a href="#analyzer" class="hero-btn">
+                    Start Analyzing →
+                </a>
+            </div>
+
+            <div class="hero-card">
+                <div class="ai-icon">✦</div>
+                <h3>Smart Analysis</h3>
+                <p>Turn student opinions into meaningful insights.</p>
+
+                <div class="mini-result">
+                    <span>Positive Feedback</span>
+                    <strong>78%</strong>
+                </div>
+
+                <div class="progress">
+                    <div></div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Analyzer Section -->
+        <section class="analyzer-section" id="analyzer">
+
+            <div class="section-heading">
+                <p class="tag">FEEDBACK ANALYSIS</p>
+                <h2>Analyze Student Feedback</h2>
+                <p>
+                    Enter student feedback below and let the analyzer
+                    identify sentiment, emotion, keywords, and overall score.
+                </p>
+            </div>
+
+            <div class="analyzer-container">
+
+                <div class="input-card">
+
+                    <label for="studentName">Student Name</label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student name"
+                    >
+
+                    <label for="feedback">Student Feedback</label>
+
+                    <textarea
+                        id="feedback"
+                        rows="9"
+                        placeholder="Example: The teaching was excellent and the faculty explained difficult topics clearly. I enjoyed the practical sessions."
+                    ></textarea>
+
+                    <div class="example-buttons">
+                        <button onclick="loadExample('positive')">
+                            Positive Example
+                        </button>
+
+                        <button onclick="loadExample('negative')">
+                            Negative Example
+                        </button>
+
+                        <button onclick="loadExample('neutral')">
+                            Neutral Example
+                        </button>
+                    </div>
+
+                    <button class="analyze-btn" onclick="analyzeFeedback()">
+                        ✨ Analyze Feedback
+                    </button>
+
+                    <button class="clear-btn" onclick="clearAnalysis()">
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <div class="results-card">
+
+                    <div class="result-header">
+                        <div>
+                            <p class="tag">AI RESULT</p>
+                            <h3>Analysis Results</h3>
+                        </div>
+
+                        <div class="status" id="status">
+                            Waiting
+                        </div>
+                    </div>
+
+                    <div class="overall-result">
+
+                        <div class="score-circle" id="scoreCircle">
+                            <strong id="score">--</strong>
+                            <span>Score</span>
+                        </div>
+
+                        <div class="overall-text">
+                            <h3 id="sentiment">No Analysis</h3>
+                            <p id="summary">
+                                Enter feedback and click Analyze Feedback.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-grid">
+
+                        <div class="result-box">
+                            <span>😊</span>
+                            <p>Sentiment</p>
+                            <strong id="sentimentValue">--</strong>
+                        </div>
+
+                        <div class="result-box">
+                            <span>💭</span>
+                            <p>Emotion</p>
+                            <strong id="emotionValue">--</strong>
+                        </div>
+
+                        <div class="result-box">
+                            <span>🔑</span>
+                            <p>Keywords</p>
+                            <strong id="keywordCount">--</strong>
+                        </div>
+
+                        <div class="result-box">
+                            <span>📝</span>
+                            <p>Words</p>
+                            <strong id="wordCount">--</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="keywords-section">
+                        <h4>Important Keywords</h4>
+
+                        <div id="keywords" class="keywords">
+                            <span class="empty">No keywords yet</span>
+                        </div>
+                    </div>
+
+
+                    <div class="analysis-details">
+
+                        <div>
+                            <h4>Positive Words</h4>
+                            <p id="positiveWords">--</p>
+                        </div>
+
+                        <div>
+                            <h4>Negative Words</h4>
+                            <p id="negativeWords">--</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features" id="about">
+
+            <div class="section-heading">
+                <p class="tag">FEATURES</p>
+                <h2>What This System Analyzes</h2>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">😊</div>
+                    <h3>Sentiment Analysis</h3>
+                    <p>
+                        Identifies whether feedback is positive,
+                        negative, or neutral.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Emotion Detection</h3>
+                    <p>
+                        Estimates emotions such as satisfaction,
+                        frustration, happiness, or concern.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔑</div>
+                    <h3>Keyword Extraction</h3>
+                    <p>
+                        Finds important words and topics frequently
+                        mentioned in student feedback.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Feedback Score</h3>
+                    <p>
+                        Generates an easy-to-understand feedback
+                        score based on the analysis.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            © 2026 AI-Powered Student Feedback Analyzer
+        </p>
+
+        <p>
+            B.Tech Web Technology Project
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
